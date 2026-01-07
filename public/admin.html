@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>דוואם — מנהל</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">ד</div>
+      <div class="brand-text">
+        <div class="brand-title" data-i18n="appName">דוואם</div>
+        <div class="brand-sub" data-i18n="adminTitle">כניסת מנהל</div>
+      </div>
+
+      <div style="margin-inline-start:auto; display:flex; gap:10px; align-items:center;">
+        <a class="btn ghost" href="./index.html" style="width:auto; padding:10px 14px; margin-top:0;">←</a>
+        <button class="btn ghost" id="langBtn" style="width:auto; padding:10px 14px; margin-top:0;">العربية</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card" id="adminLogin">
+      <h1 class="h1" data-i18n="adminTitle">כניסת מנהל</h1>
+      <p class="muted" data-i18n="adminHint">הזן סיסמת מנהל כדי להוסיף עובדים.</p>
+
+      <label class="label" data-i18n="adminPassLabel">סיסמת מנהל</label>
+      <input class="input" id="adminPass" type="password" placeholder="••••••••" />
+
+      <button class="btn primary" id="btnAdminLogin">
+        <span data-i18n="adminLoginBtn">התחברות</span>
+        <span class="btn-gloss"></span>
+      </button>
+
+      <div class="toast" id="adminToast"></div>
+    </section>
+
+    <section class="card hidden" id="adminPanel">
+      <h1 class="h1" data-i18n="addEmpTitle">הוספת עובד חדש</h1>
+      <p class="muted" data-i18n="addEmpHint">מלא שם מלא, מספר, וסיסמה לעובד.</p>
+
+      <label class="label" data-i18n="fullName">שם מלא</label>
+      <input class="input" id="fullName" placeholder="למשל: דוד כהן"/>
+
+      <label class="label" style="margin-top:10px;" data-i18n="phoneLabel">מספר (טלפון/מספר עובד)</label>
+      <input class="input" id="phone" placeholder="+9725XXXXXXXX"/>
+
+      <label class="label" style="margin-top:10px;" data-i18n="passLabel">סיסמה</label>
+      <input class="input" id="empPass" type="password" placeholder="••••••••"/>
+
+      <button class="btn success" id="btnAddEmp">
+        <span data-i18n="addBtn">הוסף עובד</span>
+        <span class="btn-gloss"></span>
+      </button>
+
+      <div class="note" style="margin-top:14px;">
+        <span class="dot"></span>
+        <span data-i18n="listTitle">עובדים קיימים</span>
+        <button class="btn ghost" id="btnRefresh" style="width:auto; padding:8px 12px; margin-top:0; margin-inline-start:auto;" data-i18n="refresh">רענון</button>
+      </div>
+
+      <div id="empList" class="pill" style="margin-top:10px; overflow:auto; max-height:240px;"></div>
+
+      <button class="btn ghost" id="btnAdminLogout" data-i18n="adminLogout">התנתקות מנהל</button>
+
+      <div class="toast" id="panelToast"></div>
+    </section>
+  </main>
+
+  <script src="./i18n.js"></script>
+  <script src="./admin.js"></script>
+</body>
+</html>

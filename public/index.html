@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>דוואם</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">ד</div>
+      <div class="brand-text">
+        <div class="brand-title" data-i18n="appName">דוואם</div>
+        <div class="brand-sub" data-i18n="appSub">נוכחות עובדים • כניסה/יציאה למשמרת</div>
+      </div>
+
+      <div style="margin-inline-start:auto; display:flex; gap:10px; align-items:center;">
+        <a class="btn ghost" href="./admin.html" style="width:auto; padding:10px 14px; margin-top:0;" data-i18n="adminLink">כניסת מנהל</a>
+        <button class="btn ghost" id="langBtn" style="width:auto; padding:10px 14px; margin-top:0;">العربية</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card" id="loginCard">
+      <h1 class="h1" data-i18n="loginTitle">התחברות עובד/ת</h1>
+      <p class="muted" data-i18n="loginHint">הכניסו פרטים כדי להתחיל.</p>
+
+      <label class="label" for="phone" data-i18n="phoneLabel">מספר (טלפון/מספר עובד)</label>
+      <input class="input" id="phone" placeholder="+9725XXXXXXXX" />
+
+      <label class="label" for="password" style="margin-top:10px;" data-i18n="passLabel">סיסמה</label>
+      <input class="input" id="password" type="password" placeholder="••••••••" />
+
+      <button class="btn primary" id="btnLogin">
+        התחבר/י
+        <span class="btn-gloss"></span>
+      </button>
+
+      <div class="note">
+        <span class="dot"></span>
+        <span data-i18n="tip">טיפ: המערכת שולחת לבעל העסק הודעה על כניסה/יציאה עם השעה.</span>
+      </div>
+
+      <div class="toast" id="toast"></div>
+    </section>
+
+    <section class="card hidden" id="shiftCard">
+      <h1 class="h1"><span data-i18n="hello">שלום,</span> <span id="empName"></span> 👋</h1>
+      <p class="muted" data-i18n="chooseAction">בבקשה בחר/י פעולה.</p>
+
+      <div class="actions">
+        <button class="btn success" id="btnCheckIn">
+          כניסה למשמרת
+          <span class="btn-gloss"></span>
+        </button>
+
+        <button class="btn danger" id="btnCheckOut">
+          יציאה מהמשמרת
+          <span class="btn-gloss"></span>
+        </button>
+      </div>
+
+      <div class="meta">
+        <div class="pill">
+          <span class="pill-k" data-i18n="status">סטטוס</span>
+          <span class="pill-v" id="statusText">מחובר/ת</span>
+        </div>
+        <div class="pill">
+          <span class="pill-k" data-i18n="lastTime">שעה אחרונה</span>
+          <span class="pill-v" id="lastTime">—</span>
+        </div>
+      </div>
+
+      <div class="meta" style="margin-top:10px;">
+        <div class="pill">
+          <span class="pill-k" data-i18n="shiftHours">שעות במשמרת</span>
+          <span class="pill-v" id="shiftHoursVal">—</span>
+        </div>
+        <div class="pill">
+          <span class="pill-k" data-i18n="totalHours30">סה״כ 30 ימים</span>
+          <span class="pill-v" id="totalHoursVal">—</span>
+        </div>
+      </div>
+
+      <div class="pill" style="margin-top:10px;">
+        <span class="pill-k" data-i18n="workDays">ימים שעבדתי (30 ימים)</span>
+        <div class="pill-v" id="daysList" style="font-size:13px; font-weight:700; line-height:1.7; max-height:180px; overflow:auto; margin-top:6px;">—</div>
+      </div>
+
+      <button class="btn ghost" id="btnLogout" data-i18n="logout">התנתקות</button>
+
+      <div class="toast" id="toast2"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> דוואם
+  </footer>
+
+  <script src="./i18n.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
